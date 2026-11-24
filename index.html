@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="./style.css">
+<main class="notebook" id="room" data-mood="happy">
+  <div class="eyebrow">MIYU'S LITTLE WORLD ♡</div>
+  <h1>Miyu's Little Mood</h1>
+  <p class="subtitle">Love is also knowing when to give space.</p>
+
+  <div class="scene">
+    <div id="symbol">♡</div>
+    <div id="cat">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="face">
+        <div class="curls">〰〰〰</div>
+        <div id="eyes">⌒　⌒</div>
+        <div class="blush left-blush"></div>
+        <div class="blush right-blush"></div>
+        <div class="mouth">ω</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="response" aria-live="polite">
+    <h2 id="mood">Happy ♡</h2>
+    <p id="message">I feel safe with you.</p>
+  </div>
+
+  <section class="controls">
+    <div class="control">
+      <label for="energy">
+        Miyu's energy
+        <span id="energyValue">60%</span>
+      </label>
+      <input type="range" id="energy"
+             min="0" max="100" value="60">
+      <div class="range-labels">
+        <span>Sleepy</span>
+        <span>Energetic</span>
+      </div>
+    </div>
+
+    <fieldset class="control">
+      <legend>How much attention?</legend>
+      <div class="options">
+        <label>
+          <input type="radio" name="attention" value="none">
+          Give space
+        </label>
+        <label>
+          <input type="radio" name="attention" value="gentle" checked>
+          Gentle pets
+        </label>
+        <label>
+          <input type="radio" name="attention" value="lots">
+          Lots of pets
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="quiet-control">
+      <input type="checkbox" id="quiet" checked>
+      Keep the room quiet
+    </label>
+
+    <button id="reset">Start again ♡</button>
+  </section>
+
+  <footer>Made with love by Annie</footer>
+</main>
+<script src="./script.js"></script>

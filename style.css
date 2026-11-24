@@ -1,0 +1,305 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f7e7ed;
+  font-family: Georgia, serif;
+  color: #775563;
+}
+
+.notebook {
+  --accent: #c982a0;
+  --scene: #fce7ef;
+  width: min(100%, 480px);
+  padding: 30px;
+  background: #fffaf7;
+  border: 1px solid #e7cbd5;
+  border-radius: 28px;
+  box-shadow: 0 15px 60px #b7799420;
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #b67d94;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  margin: 12px 0 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  font-style: italic;
+  color: #a38a94;
+}
+
+.scene {
+  position: relative;
+  height: 210px;
+  background: var(--scene);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  margin-top: 24px;
+  overflow: hidden;
+  transition: background 0.5s;
+}
+
+#cat {
+  position: relative;
+  width: 150px;
+  height: 125px;
+  animation: breathe 3s infinite ease-in-out;
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  background: #c7b8b1;
+  border: 2px solid #ae9d98;
+  border-radius: 46% 46% 44% 44%;
+}
+
+.ear {
+  position: absolute;
+  top: -22px;
+  width: 48px;
+  height: 62px;
+  background: #c7b8b1;
+  border: 2px solid #ae9d98;
+  border-radius: 14px 90% 20px 20px;
+}
+
+.ear.left {
+  left: 4px;
+  transform: rotate(-18deg);
+}
+
+.ear.right {
+  right: 4px;
+  transform: rotate(18deg) scaleX(-1);
+}
+
+.ear::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: #e8b9c6;
+  border-radius: inherit;
+}
+
+.curls {
+  font-size: 23px;
+  color: #a89891;
+  margin-top: 8px;
+  letter-spacing: -7px;
+}
+
+#eyes {
+  font-size: 29px;
+  color: #65535b;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.mouth {
+  font-size: 24px;
+  line-height: 20px;
+  color: #8d6675;
+}
+
+.blush {
+  position: absolute;
+  top: 78px;
+  width: 23px;
+  height: 12px;
+  background: #e6a6b7;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.left-blush { left: 16px; }
+.right-blush { right: 16px; }
+
+#symbol {
+  position: absolute;
+  right: 55px;
+  top: 25px;
+  color: var(--accent);
+  font-size: 30px;
+  animation: float 2s infinite ease-in-out;
+}
+
+.response {
+  min-height: 95px;
+  padding: 8px 0;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+#message {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.controls {
+  text-align: left;
+  border-top: 1px dashed #e6cbd6;
+  padding-top: 20px;
+}
+
+.control {
+  margin: 0 0 20px;
+}
+
+label, legend {
+  font-size: 14px;
+}
+
+.control > label {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  accent-color: var(--accent);
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 12px 0 5px;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #ad939e;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.options label {
+  background: #f7edf0;
+  border-radius: 12px;
+  padding: 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.quiet-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  width: 100%;
+  margin-top: 22px;
+  border: 1px solid #dfbdcb;
+  border-radius: 12px;
+  background: transparent;
+  padding: 12px;
+  font: inherit;
+  color: #9c6d82;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f9e8ef;
+}
+
+footer {
+  font-size: 11px;
+  color: #b79da7;
+  margin-top: 24px;
+}
+
+[data-mood="sleepy"] {
+  --scene: #eae4f4;
+  --accent: #9784b1;
+}
+
+[data-mood="annoyed"] {
+  --scene: #f4e4d5;
+  --accent: #b58965;
+}
+
+[data-mood="overwhelmed"] {
+  --scene: #f4d4d9;
+  --accent: #b96478;
+}
+
+[data-mood="nervous"] {
+  --scene: #e0e7f1;
+  --accent: #7d92b0;
+}
+
+[data-mood="curious"] {
+  --scene: #f7efd5;
+  --accent: #b49b58;
+}
+
+[data-mood="overwhelmed"] #cat {
+  animation: shake 0.35s infinite;
+}
+
+[data-mood="nervous"] #cat {
+  animation: shake 1s infinite;
+}
+
+[data-mood="sleepy"] #cat {
+  animation: breathe 5s infinite;
+}
+
+[data-mood="annoyed"] #cat {
+  animation: none;
+  transform: translateY(5px);
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #cat, #symbol {
+    animation: none !important;
+  }
+}
